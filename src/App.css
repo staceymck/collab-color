@@ -4,6 +4,7 @@
   --main-font: 'Roboto', sans-serif;
   --main-font-weight: 300;
   --primary-color: #267E92;
+  --primary-color-dark: #155865;
 }
 
 html, body {
@@ -20,7 +21,7 @@ body {
 }
 
 .push {
-  height: 50px;
+  height: 40px;
 }
 
 .page-container {
