@@ -5,12 +5,12 @@ import linkStyles from '../../links.css'
 
 const Navbar = () => {
   return (
-      <nav className={styles.nav}>
+      <nav>
         <ul>
           <li>
             <NavLink to="/gallery" activeClassName={styles.active}>Gallery</NavLink>
           </li>
-          <li className={styles.li}>
+          <li>
             <NavLink to="/color" activeClassName={styles.active}>Color a tile</NavLink>
           </li>
         </ul>
