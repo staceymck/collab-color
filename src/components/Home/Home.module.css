@@ -1,0 +1,50 @@
+h1 {
+  font-size: 5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+p {
+  font-size: 1.25rem;
+  padding-right: 2.5rem;
+}
+
+p:last-of-type {
+  padding-bottom: 1rem;
+}
+
+.two-col-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.two-col-flex .column {
+  flex: 50%;
+  padding: 1rem;
+}
+
+@media (max-width: 720px) {
+  .two-col-flex {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  p {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
