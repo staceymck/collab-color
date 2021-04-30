@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer'
+import PaintContainer from './containers/PaintContainer'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
             {/* <GalleryContainer /> */}
           </Route>
           <Route path="/color">
-            {/* <SvgSelector /> */}
+            <PaintContainer />
           </Route>
           <Route path="/">
             <Home />
