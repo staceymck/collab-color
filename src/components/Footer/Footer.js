@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Footer.module.css';
-import linkStyles from '../../links.css';
+import './Footer.module.css'; //don't need to namespace because styles only applied to HTML elements, no classnames to separate
 
 const Footer = () => {
   return (
