@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css'
-import linkStyles from '../../links.css'
+import '../../links.css' //importing linkStyles here applies it everywhere on the app because it's global
 
 const Navbar = () => {
   return (
@@ -11,7 +11,7 @@ const Navbar = () => {
             <NavLink to="/gallery" activeClassName={styles.active}>Gallery</NavLink>
           </li>
           <li>
-            <NavLink to="/color" activeClassName={styles.active}>Color a tile</NavLink>
+            <NavLink to="/canvases" activeClassName={styles.active}>Color a tile</NavLink>
           </li>
         </ul>
       </nav>
