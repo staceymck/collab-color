@@ -3,7 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer'
-import PaintContainer from './containers/PaintContainer'
+import CanvasContainer from './containers/CanvasContainer'
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
           <Route path="/gallery">
             {/* <GalleryContainer /> */}
           </Route>
-          <Route path="/color">
-            <PaintContainer />
+          <Route path="/canvases">
+            <CanvasContainer />
           </Route>
           <Route path="/">
             <Home />
