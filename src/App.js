@@ -3,7 +3,8 @@ import Navbar from './components/Navbar/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer'
-import CanvasContainer from './containers/CanvasContainer'
+import CanvasesContainer from './containers/CanvasesContainer'
+import PaintingsContainer from './containers/PaintingsContainer'
 
 function App() {
   return (
@@ -12,10 +13,10 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/gallery">
-            {/* <GalleryContainer /> */}
+            <PaintingsContainer />
           </Route>
           <Route path="/canvases">
-            <CanvasContainer />
+            <CanvasesContainer />
           </Route>
           <Route path="/">
             <Home />
