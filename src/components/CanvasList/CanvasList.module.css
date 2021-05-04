@@ -3,16 +3,28 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
-.card {
+.header {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.canvas {
   flex: 1;
-  padding: 1rem;
+}
+
+.card:hover {
+  background :#d7eff3;
+  padding: .25rem;
+  transition: border 2s ease;
 }
 
 @media (max-width: 920px) {
   .row {flex-wrap: wrap}
-  .card {flex-basis: 100%}
-
+  .canvas {
+    flex-basis: 100%;
+  }
 }
 
