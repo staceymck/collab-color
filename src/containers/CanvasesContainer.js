@@ -41,7 +41,7 @@ class CanvasesContainer extends React.Component {
           render={(routeProps) => {
             return (
               this.props.canvases.length === 0 ?
-              <Loading /> : this.prepStudioCanvas(routeProps)
+              <Loading message="Loading" /> : this.prepStudioCanvas(routeProps)
             )
           }} /> 
       </Switch> 

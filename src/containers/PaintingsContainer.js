@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPaintingsStart } from '../actions/paintingActions';
 import PaintingList from '../components/PaintingList/PaintingList';
 import Loading from '../components/Loading/Loading';
+// import PaintingFilter from '../components/PaintingFilter/PaintingFilter';
 
 class PaintingsContainer extends React.Component {
 
@@ -14,7 +15,8 @@ class PaintingsContainer extends React.Component {
     const { paintings, status, errors } = this.props
     return (
       <div>
-        {status === "idle" || status === "pending" ? <Loading /> : <PaintingList paintings={paintings} />  }
+        {/* <PaintingFilter /> */}
+        {status === "idle" || status === "pending" ? <Loading message="Loading" /> : <PaintingList paintings={paintings} />  }
       </div>
     )
   }
