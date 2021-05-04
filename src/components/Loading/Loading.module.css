@@ -1,0 +1,11 @@
+.modal {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 30vh;
+  position: fixed;
+  overflow: auto;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
