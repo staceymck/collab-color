@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPaintingsStart } from '../actions/paintingActions';
-import PaintingList from '../components/PaintingList/PaintingList'
+import PaintingList from '../components/PaintingList/PaintingList';
+import Loading from '../components/Loading/Loading';
 
 class PaintingsContainer extends React.Component {
 
@@ -10,9 +11,10 @@ class PaintingsContainer extends React.Component {
   }
 
   render() {
+    const { paintings, status, errors } = this.props
     return (
       <div>
-        <PaintingList paintings={this.props.paintings} />
+        {status === "idle" || status === "pending" ? <Loading /> : <PaintingList paintings={paintings} />  }
       </div>
     )
   }
