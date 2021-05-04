@@ -15,7 +15,6 @@ const studioReducer = (
         studioCanvas: colors
       }
     case "ADD_COLOR":
-      console.log("hit add color")
       const updatedCanvas = state.studioCanvas.map(polygon => {
         if (polygon.id === action.id) {
           return {...polygon, color: action.hexcode}
@@ -26,6 +25,14 @@ const studioReducer = (
       return {
         ...state,
         studioCanvas: updatedCanvas
+      }
+    case "RESET_CANVAS":
+      const blankCanvas = state.studioCanvas.map(polygon => {
+        return {...polygon, color: "#fff"}
+      })
+      return {
+        ...state,
+        studioCanvas: blankCanvas
       }
     default:
       return state
