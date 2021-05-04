@@ -6,8 +6,8 @@ import buttonStyles from '../Button/Button.module.css';
 
 const Home = () => {
   return (
-    <div className={styles["two-col-flex"]}>
-      <div className={styles["column"]}>
+    <div className={styles.row}>
+      <div className={styles.column}>
       <h1>collab color</h1>
       <p>
         Join in a collective artwork through this click-to-color app. 
@@ -21,10 +21,10 @@ const Home = () => {
         Tiles are displayed newest to oldest in the gallery, but you can create new patterns through
         the sorting options. Thanks for co-creating!
       </p>
-      <Link to="/gallery" className={buttonStyles["primary"]}>View the gallery</Link>
+      <Link to="/gallery" className={buttonStyles.primary}>View the gallery</Link>
       </div>
-      <div className={styles["column"]}>
-        <img src={artSample} />
+      <div className={styles.column}>
+        <img src={artSample} alt="Grid of 9 squares, each composed of colorful triangles" />
       </div>
     </div>
   )
