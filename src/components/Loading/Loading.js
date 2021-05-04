@@ -21,15 +21,15 @@ export default class Loading extends React.Component {
     }, 200) 
   }
 
-  componentDidUnMount = () => {
+  componentWillUnmount = () => {
     clearInterval(this.interval)
   }
 
   displayDots = () => {
     const dots = [...Array(this.state.dots).keys()].map(x => x += 1)
-    return dots.map(dot => {
+    return dots.map((dot, i) => {
       return (
-        <svg height="100" width="100">
+        <svg height="100" width="100" key={i}>
           <circle cx="50" cy="50" r="20" fill={this.state.dark === dot ? "#267E92" : "#43BEC6" } />
         </svg>
       )
