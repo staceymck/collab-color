@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from "./Loading.module.css"
 
 export default class Loading extends React.Component {
 
@@ -38,8 +39,8 @@ export default class Loading extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Loading</h1>
+      <div className={styles.modal}>
+        <h1>{this.props.message}</h1>
         {this.displayDots()}
       </div> 
     )
