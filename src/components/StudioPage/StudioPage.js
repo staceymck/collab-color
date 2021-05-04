@@ -1,6 +1,7 @@
 import React from 'react';
 import Canvas from '../Canvas/Canvas';
 import styles from './StudioPage.module.css';
+import { SketchPicker } from 'react-color';
 
 const StudioPage = ({canvas}) => {
   return (
@@ -11,6 +12,7 @@ const StudioPage = ({canvas}) => {
         polygons={canvas.polygons}
         // cardStyles={add style}
       />
+      <SketchPicker />
     </div>
   )
 }
