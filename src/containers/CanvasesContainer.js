@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import CanvasList from '../components/CanvasList/CanvasList';
 import { fetchCanvasesStart } from '../actions/canvasActions';
 import Canvas from "../components/Canvas/Canvas";
+import Loading from "../components/Loading/Loading";
 
 class CanvasesContainer extends React.Component {
 
@@ -11,8 +12,8 @@ class CanvasesContainer extends React.Component {
     this.props.fetchCanvasesStart();
   }
 
-  selectStudioCanvas = (routerProps) => {
-    const id = parseInt(routerProps.match.params.id, 10)
+  prepStudioCanvas = (routeProps) => {
+    const id = parseInt(routeProps.match.params.id, 10)
     const canvas = this.props.canvases.find(c => c.id === id)
     if (canvas) {
       return (
@@ -37,7 +38,12 @@ class CanvasesContainer extends React.Component {
         </Route>
         <Route 
           path="/canvases/:id/paintings/new"
-          render={(routeProps) => this.selectStudioCanvas(routeProps) } /> 
+          render={(routeProps) => {
+            return (
+              this.props.canvases.length === 0 ?
+              <Loading /> : this.prepStudioCanvas(routeProps)
+            )
+          }} /> 
       </Switch> 
     </div>
     )
