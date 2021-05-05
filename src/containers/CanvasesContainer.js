@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import CanvasList from '../components/CanvasList/CanvasList';
 import { fetchCanvasesStart } from '../actions/canvasActions';
-import Canvas from "../components/Canvas/Canvas";
+import { newPainting } from '../actions/studioActions';
+import StudioPage from "../components/StudioPage/StudioPage";
 import Loading from "../components/Loading/Loading";
 
 class CanvasesContainer extends React.Component {
@@ -12,17 +13,12 @@ class CanvasesContainer extends React.Component {
     this.props.fetchCanvasesStart();
   }
 
-  prepStudioCanvas = (routeProps) => {
+  prepStudio = (routeProps) => {
     const id = parseInt(routeProps.match.params.id, 10)
     const canvas = this.props.canvases.find(c => c.id === id)
     if (canvas) {
       return (
-        <Canvas 
-          key={canvas.id}
-          id={canvas.id}
-          polygons={canvas.polygons}
-          //cardStyles={styles.studioCanvas}  //add studio style
-        />
+        <StudioPage canvas={canvas} newPainting={this.props.newPainting} />
       )
     } else {
       return <div>Canvas not found!</div> //handle errors - maybe redirect to canvas list route
@@ -41,7 +37,7 @@ class CanvasesContainer extends React.Component {
           render={(routeProps) => {
             return (
               this.props.canvases.length === 0 ?
-              <Loading message="Loading" /> : this.prepStudioCanvas(routeProps)
+              <Loading message="Loading" /> : this.prepStudio(routeProps)
             )
           }} /> 
       </Switch> 
@@ -57,4 +53,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchCanvasesStart})(CanvasesContainer)
+export default connect(mapStateToProps, {fetchCanvasesStart, newPainting})(CanvasesContainer)
