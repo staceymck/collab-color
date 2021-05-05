@@ -1,5 +1,5 @@
 const paintingReducer = (
-  state = { paintings: [], status: "idle", errors: null, currentPage: 1, totalPages: 1 },
+  state = { paintings: [], status: "idle", errors: null, query: "", currentPage: 1, totalPages: 1 },
   action
 ) => {
   switch(action.type) {
@@ -25,6 +25,11 @@ const paintingReducer = (
         ...state,
         currentPage: action.currentPage,
         totalPage: action.totalPages
+      }
+    case "SET_SORT_QUERY":
+      return {
+        ...state,
+        query: action.query
       }
     default: 
       return state
