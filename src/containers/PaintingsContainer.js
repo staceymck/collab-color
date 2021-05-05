@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { fetchPaintingsStart } from '../actions/paintingActions';
 import PaintingList from '../components/PaintingList/PaintingList';
 import Loading from '../components/Loading/Loading';
-// import PaintingFilter from '../components/PaintingFilter/PaintingFilter';
+import PaintingFilter from '../components/PaintingFilter/PaintingFilter';
+import { Switch, Route } from 'react-router-dom';
+import Pagination from '../components/Pagination/Pagination';
 
 class PaintingsContainer extends React.Component {
 
@@ -12,11 +14,22 @@ class PaintingsContainer extends React.Component {
   }
 
   render() {
-    const { paintings, status, errors } = this.props
+    const { paintings, status, errors, query, current, total, fetchPaintingsStart } = this.props
     return (
       <div>
-        {/* <PaintingFilter /> */}
-        {status === "idle" || status === "pending" ? <Loading message="Loading" /> : <PaintingList paintings={paintings} />  }
+        <PaintingFilter fetch={fetchPaintingsStart} />
+
+        <Switch> 
+          <Route exact path="/gallery">
+            {status === "idle" || status === "pending" ? <Loading message="Loading" /> : <PaintingList paintings={paintings} />  }
+          </Route>
+          <Route path={`/gallery/:query/:page`}>
+            {status === "idle" || status === "pending" ? <Loading message="Loading" /> : <PaintingList paintings={paintings} /> }
+          </Route> 
+        </Switch> 
+
+        <Pagination current={current} total={total} currentQuery={query} fetch={fetchPaintingsStart} />
+        
       </div>
     )
   }
@@ -26,7 +39,10 @@ const mapStateToProps = (state) => {
   return {
     paintings: state.paintings.paintings,
     status: state.paintings.status,
-    errors: state.paintings.error
+    errors: state.paintings.error,
+    current: state.paintings.currentPage,
+    total: state.paintings.totalPages,
+    query: state.paintings.query
   }
 }
 
