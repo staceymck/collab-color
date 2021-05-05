@@ -10308,6 +10308,11 @@
     "astral-regex" "^2.0.0"
     "is-fullwidth-code-point" "^3.0.0"
 
+"snakeize@^0.1.0":
+  "integrity" "sha1-EMCI2LWOsHazIpu1oE4jLOEmQi0="
+  "resolved" "https://registry.npmjs.org/snakeize/-/snakeize-0.1.0.tgz"
+  "version" "0.1.0"
+
 "snapdragon-node@^2.0.1":
   "integrity" "sha512-O27l4xaMYt/RSQ5TR3vpWCAB5Kb/czIcqUFOM/C4fYcLnbZUc1PkjTAMjof2pBWaSTwOUd6qUHcFGVGj7aIwnw=="
   "resolved" "https://registry.npmjs.org/snapdragon-node/-/snapdragon-node-2.1.1.tgz"
