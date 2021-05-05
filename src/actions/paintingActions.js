@@ -8,10 +8,14 @@ export const fetchPaintingsStart = () => {
     fetch("http://localhost:3000/paintings")
     .then(res => res.json())
     .then(data => {
-      dispatch(fetchPaintingsSuccess(data))
+      dispatch(fetchPaintingsSuccess(data.paintings))
     })
     .catch(error => {
       dispatch(fetchPaintingsError(error))
     })
   }
 }
+
+export const setPagination = (current, total) => {
+  return {type: "SET_PAGINATION", currentPage: current, totalPages: total}
+} 
