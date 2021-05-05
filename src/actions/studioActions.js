@@ -3,7 +3,7 @@ export const startPainting = canvasPolygons => {
 } 
 
 export const addColor = (polygonId, hexcode) => {
-  return {type: "ADD_COLOR", id: polygonId, hexcode: hexcode}
+  return {type: "ADD_COLOR", id: polygonId, color: hexcode}
 } 
 
 export const resetCanvas = () => {
