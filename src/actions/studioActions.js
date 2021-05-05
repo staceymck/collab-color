@@ -1,3 +1,5 @@
+import snakeize from 'snakeize'
+
 export const createPaintingSuccess = () => ({type: "CREATE_PAINTING_SUCCESS"})
 export const createPaintingError = error => ({type: "CREATE_PAINTING_ERROR", payload: error})
 
@@ -13,7 +15,7 @@ export const createPaintingStart = (canvasId, studioCanvas) => {
         "Content-type": "application/json",
         "Accepts": "application/json"
       },
-      body: JSON.stringify(finishedPainting)
+      body: JSON.stringify(snakeize(finishedPainting))
     }
 
     fetch("http://localhost:3000/paintings", configObj)
