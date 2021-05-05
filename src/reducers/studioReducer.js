@@ -34,6 +34,22 @@ const studioReducer = (
         ...state,
         studioCanvas: blankCanvas
       }
+    case "CREATE_PAINTING_START":
+      return {
+        ...state,
+        status: "pending"
+      }
+    case "CREATE_PAINTING_SUCCESS":
+      return {
+        ...state,
+        status: "resolved"
+      }
+    case "CREATE_PAINTING_ERROR":
+     return {
+       ...state,
+       status: "rejected",
+       errors: action.payload
+     }
     default:
       return state
   }
