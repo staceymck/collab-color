@@ -1,0 +1,18 @@
+.container {
+  padding-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.05rem;
+}
+
+.filter {
+  padding-left: .75rem;
+}
+
+.activeFilter {
+  font-weight: bold;
+  padding-left: .75rem;
+}
+
+.cta {
+  font-weight: 400;
+}
