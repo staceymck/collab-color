@@ -24,7 +24,7 @@ export const createPaintingStart = (canvasId, studioCanvas) => {
     fetch("http://localhost:3000/paintings", configObj)
     .then(res => res.json())
     .then(data => { //can I display success message after the .then or do I need to wait until this step?
-      dispatch(createPaintingSuccess) //display success message
+      dispatch(createPaintingSuccess()) //display success message
     })
     .catch(error => {
       dispatch(createPaintingError(error)) //display error message
