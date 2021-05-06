@@ -7,7 +7,10 @@ export const createPaintingStart = (canvasId, studioCanvas) => {
   return (dispatch) => {
     dispatch({type: "CREATE_PAINTING_START"})
 
-    const finishedPainting = {painting: {canvasId: canvasId, coloredPolygons: studioCanvas}}
+    const polys = studioCanvas.map(poly => {
+      return ({polygonId: poly.id, color: poly.color})
+    })
+    const finishedPainting = {painting: {canvasId: canvasId, coloredPolygonsAttributes: polys}}
 
     const configObj = {
       method: "POST",
