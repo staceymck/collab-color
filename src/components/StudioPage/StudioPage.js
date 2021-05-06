@@ -5,7 +5,8 @@ import { SketchPicker } from 'react-color';
 import buttonStyles from '../Button/Button.module.css';
 import { addColor, resetCanvas, createPaintingStart } from '../../actions/studioActions';
 import { connect } from 'react-redux';
-import ColorPicker from '../ColorPicker/ColorPicker'
+// import ColorPicker from '../ColorPicker/ColorPicker'
+import Loading from '../Loading/Loading';
 
 class StudioPage extends React.Component {
 
@@ -22,10 +23,10 @@ class StudioPage extends React.Component {
   }
 
   render() {
-    const { studioCanvas, addColor, resetCanvas, createPaintingStart, canvas } = this.props
-
+    const { studioCanvas, addColor, resetCanvas, createPaintingStart, canvas, status } = this.props
     return ( 
       <div className={styles.container}>
+        {status === "pending" && <Loading message="Saving" />}
         <StudioCanvas 
           polygons={studioCanvas}
           cardStyles={styles.item1}
@@ -56,7 +57,8 @@ class StudioPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    studioCanvas: state.studioCanvas.studioCanvas
+    studioCanvas: state.studioCanvas.studioCanvas,
+    status: state.studioCanvas.status
   }
 }
 
