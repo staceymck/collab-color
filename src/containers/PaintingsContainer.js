@@ -10,10 +10,15 @@ import Pagination from '../components/Pagination/Pagination';
 class PaintingsContainer extends React.Component {
 
   componentDidMount = () => {
-    this.props.fetchPaintingsStart()
+    const search = new URLSearchParams(this.props.location.search)
+    const query = search.get("q") || ""
+    let page = parseInt(search.get("page")) || 1
+
+    this.props.fetchPaintingsStart(query, page)
   }
 
   render() {
+
     const { paintings, status, errors, query, current, total, fetchPaintingsStart } = this.props
     return (
       <div>
@@ -21,15 +26,21 @@ class PaintingsContainer extends React.Component {
 
         <Switch> 
           <Route exact path="/gallery">
-            {status === "idle" || status === "pending" ? <Loading message="Loading" /> : <PaintingList paintings={paintings} />  }
+            {status === "idle" || status === "pending" ?
+             <Loading message="Loading" /> : <PaintingList paintings={paintings} />  }
           </Route>
-          <Route path={`/gallery/:query/:page`}>
-            {status === "idle" || status === "pending" ? <Loading message="Loading" /> : <PaintingList paintings={paintings} /> }
+          <Route path="/gallery?q=:query&page=:page">
+            {status === "idle" || status === "pending" ?
+             <Loading message="Loading" /> : <PaintingList paintings={paintings}/> }
           </Route> 
         </Switch> 
 
-        <Pagination current={current} total={total} currentQuery={query} fetch={fetchPaintingsStart} />
-        
+        <Pagination 
+          current={current} 
+          total={total}
+          currentQuery={query}
+          fetch={fetchPaintingsStart}
+        />
       </div>
     )
   }
