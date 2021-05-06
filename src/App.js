@@ -12,9 +12,7 @@ function App() {
       <div className="page-container">
         <Navbar />
         <Switch>
-          <Route path="/gallery">
-            <PaintingsContainer />
-          </Route>
+          <Route path="/gallery" component={PaintingsContainer} />
           <Route path="/canvases">
             <CanvasesContainer />
           </Route>
