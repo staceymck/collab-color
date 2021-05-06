@@ -24,7 +24,7 @@ const paintingReducer = (
       return {
         ...state,
         currentPage: action.currentPage,
-        totalPage: action.totalPages
+        totalPages: action.totalPages
       }
     case "SET_SORT_QUERY":
       return {
