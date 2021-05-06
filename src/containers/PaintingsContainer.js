@@ -22,7 +22,7 @@ class PaintingsContainer extends React.Component {
     const { paintings, status, errors, query, current, total, fetchPaintingsStart } = this.props
     return (
       <div>
-        <PaintingFilter fetch={fetchPaintingsStart} />
+        <PaintingFilter fetch={fetchPaintingsStart} currentQuery={query} />
 
         <Switch> 
           <Route exact path="/gallery">
