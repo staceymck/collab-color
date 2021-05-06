@@ -40,7 +40,7 @@ export default class Loading extends React.Component {
   render() {
     return (
       <div className={styles.modal}>
-        <h1>{this.props.message}</h1>
+        <h1 className={styles.message}>{this.props.message}</h1>
         {this.displayDots()}
       </div> 
     )

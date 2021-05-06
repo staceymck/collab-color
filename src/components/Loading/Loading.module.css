@@ -2,10 +2,16 @@
   text-align: center;
   height: 100%;
   width: 100%;
+  background: rgba(255,255,255,0.6);
   padding-top: 30vh;
   position: fixed;
   overflow: auto;
   z-index: 1;
   left: 0;
   top: 0;
+}
+
+.message {
+  font-size: 2rem;
+  color: var(--primary-color)
 }
