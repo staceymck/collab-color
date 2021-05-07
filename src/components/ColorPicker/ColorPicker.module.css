@@ -1,0 +1,52 @@
+.colorPicker {
+  padding: 10px 10px 0px;
+  width: 80%;
+  box-sizing: initial;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px;
+}
+
+.slider {
+  height: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: .25rem 0;
+}
+
+.sat {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80%;
+}
+
+.hex {
+  padding-bottom: .25rem;
+}
+
+.hex input {
+  border: 1px solid rgb(238, 238, 238);
+  font: var(--main-font);
+  width: 30%;
+}
+
+.hex label {
+  font-size: 1rem;
+  padding-left: .25rem;
+}
+
+.swatchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  border-top: 1px solid rgb(238, 238, 238);
+  padding: 10px 0px 0px 10px;
+  margin: 0px -10px;
+}
+
+.swatchBlock {
+  width: 1rem;
+  height: 1rem;
+  margin: 0px 10px 10px 0px;
+}
