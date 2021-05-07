@@ -46,7 +46,7 @@ class StudioPage extends React.Component {
           <button className={buttonStyles.primary} onClick={() => createPaintingStart(canvas.id, studioCanvas)}>
             Save to gallery
           </button>
-          <button onClick={resetCanvas}>
+          <button className={buttonStyles.danger} onClick={resetCanvas}>
             Reset
           </button>
         </div>
