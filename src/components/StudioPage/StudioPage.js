@@ -5,8 +5,10 @@ import { SketchPicker } from 'react-color';
 import buttonStyles from '../Button/Button.module.css';
 import { addColor, resetCanvas, createPaintingStart } from '../../actions/studioActions';
 import { connect } from 'react-redux';
-// import ColorPicker from '../ColorPicker/ColorPicker'
+import ColorPicker from '../ColorPicker/ColorPicker'
+
 import Loading from '../Loading/Loading';
+import SuccessModal from '../SuccessModal/SuccessModal';
 
 class StudioPage extends React.Component {
 
@@ -16,6 +18,10 @@ class StudioPage extends React.Component {
 
   componentDidMount = () => {
     this.props.newPainting(this.props.canvas.polygons)
+  }
+
+  componentWillUnmount = () => {
+    //BE SURE TO CALL A DISPATCH THAT RESETS THE STATUS AS IDLE
   }
 
   handleChangeComplete = (color) => {
@@ -32,6 +38,9 @@ class StudioPage extends React.Component {
     return ( 
       <div className={styles.container}>
         {status === "pending" && <Loading message="Posting" />}
+        {console.log(status)}
+        {status === "resolved" && <SuccessModal />}
+        {/* <ColorPicker /> */}
         <Canvas 
           polygons={studioCanvas}
           cardStyles={styles.item1}
@@ -50,7 +59,7 @@ class StudioPage extends React.Component {
         <div className={styles.item3}>
           {this.minPolysPainted() ? 
             <button className={buttonStyles.primary} onClick={() => createPaintingStart(canvas.id, studioCanvas)}>
-              Send to gallery
+              Post to gallery
             </button> 
             :
             <p>Paint 20+ to unlock posting</p>
