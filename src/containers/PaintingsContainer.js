@@ -6,6 +6,7 @@ import Loading from '../components/Loading/Loading';
 import PaintingFilter from '../components/PaintingFilter/PaintingFilter';
 import { Switch, Route } from 'react-router-dom';
 import Pagination from '../components/Pagination/Pagination';
+import NotFound from '../components/NotFound';
 
 class PaintingsContainer extends React.Component {
 
@@ -19,9 +20,10 @@ class PaintingsContainer extends React.Component {
 
   render() {
 
-    const { paintings, status, errors, query, current, total, fetchPaintingsStart } = this.props
+    const { paintings, status, query, current, total, fetchPaintingsStart } = this.props
     return (
       <div>
+        {(status === "resolved" && paintings.length === 0) && this.props.fetchPaintingsStart(query, 1) }
         <PaintingFilter fetch={fetchPaintingsStart} currentQuery={query} />
 
         <Switch> 
@@ -29,10 +31,11 @@ class PaintingsContainer extends React.Component {
             {status === "idle" || status === "pending" ?
              <Loading message="Loading" /> : <PaintingList paintings={paintings} />  }
           </Route>
-          <Route path="/gallery?q=:query&page=:page">
+          <Route exact path="/gallery?q=:query&page=:page">
             {status === "idle" || status === "pending" ?
              <Loading message="Loading" /> : <PaintingList paintings={paintings}/> }
           </Route> 
+          <Route render={(props) => <NotFound {...props} redirect={"/gallery"} />} />
         </Switch> 
 
         <Pagination 
@@ -50,7 +53,6 @@ const mapStateToProps = (state) => {
   return {
     paintings: state.paintings.paintings,
     status: state.paintings.status,
-    errors: state.paintings.error,
     current: state.paintings.currentPage,
     total: state.paintings.totalPages,
     query: state.paintings.query
