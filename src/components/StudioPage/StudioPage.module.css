@@ -41,6 +41,11 @@
   grid-column-start: 2;
 }
 
+.item3 p {
+  text-align: center;
+  padding: initial;
+}
+
 @media (max-width: 700px) {
 
   .container {

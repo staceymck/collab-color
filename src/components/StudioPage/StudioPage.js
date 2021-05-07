@@ -22,11 +22,16 @@ class StudioPage extends React.Component {
     this.setState({activeColor: color.hex})
   }
 
+  minPolysPainted = () => {
+    const painted = this.props.studioCanvas.filter(p => p.color !== "#fff" && p.color !== "#ffffff")
+    return painted.length >= 20 ? true : false
+  }
+
   render() {
     const { studioCanvas, addColor, resetCanvas, createPaintingStart, canvas, status } = this.props
     return ( 
       <div className={styles.container}>
-        {status === "pending" && <Loading message="Saving" />}
+        {status === "pending" && <Loading message="Posting" />}
         <Canvas 
           polygons={studioCanvas}
           cardStyles={styles.item1}
@@ -43,9 +48,13 @@ class StudioPage extends React.Component {
         </div>
 
         <div className={styles.item3}>
-          <button className={buttonStyles.primary} onClick={() => createPaintingStart(canvas.id, studioCanvas)}>
-            Save to gallery
-          </button>
+          {this.minPolysPainted() ? 
+            <button className={buttonStyles.primary} onClick={() => createPaintingStart(canvas.id, studioCanvas)}>
+              Send to gallery
+            </button> 
+            :
+            <p>Paint 20+ to unlock posting</p>
+          }
           <button className={buttonStyles.danger} onClick={resetCanvas}>
             Reset
           </button>
