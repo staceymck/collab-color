@@ -9,14 +9,14 @@ const PaintingFilter = ({fetch, currentQuery}) => {
   return (
     <div className={styles.container}>
       <span className={styles.cta}>Change the pattern: </span>
-      {filters.map(filter => {
+      {filters.map((filter, i) => {
         const filterLowercase = filter.toLowerCase()
         return (
           <Link
+            key={i}
             className={currentQuery === filterLowercase ? styles.activeFilter : styles.filter}
             to={`/gallery?q=${filterLowercase}&page=1`}
             onClick={() => fetch(filterLowercase)}>{filter}
-            
           </Link>
         )
       })}
