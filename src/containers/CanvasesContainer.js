@@ -6,6 +6,7 @@ import { fetchCanvasesStart } from '../actions/canvasActions';
 import { newPainting } from '../actions/studioActions';
 import StudioPage from "../components/StudioPage/StudioPage";
 import Loading from "../components/Loading/Loading";
+import NotFound from '../components/NotFound';
 
 class CanvasesContainer extends React.Component {
 
@@ -21,7 +22,9 @@ class CanvasesContainer extends React.Component {
         <StudioPage canvas={canvas} newPainting={this.props.newPainting} />
       )
     } else {
-      return <div>Canvas not found!</div> //handle errors - maybe redirect to canvas list route
+      return (
+        <NotFound redirect={"/canvases"} />
+      )
     }
   }
   
@@ -40,6 +43,7 @@ class CanvasesContainer extends React.Component {
               <Loading message="Loading" /> : this.prepStudio(routeProps)
             )
           }} /> 
+          <Route render={(props) => <NotFound {...props} redirect={"/canvases"} />} />
       </Switch> 
     </div>
     )
