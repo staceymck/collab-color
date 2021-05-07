@@ -31,21 +31,21 @@ class StudioContainer extends React.Component {
   render() {
     return (
       <div>
-       <Switch> 
-         <Route exact path="/canvases">
-           <CanvasList canvases={this.props.canvases}/>
-        </Route>
-        <Route 
-          path="/canvases/:id/paintings/new"
-          render={(routeProps) => {
-            return (
-              this.props.canvases.length === 0 ?
-              <Loading message="Loading" /> : this.prepStudio(routeProps)
-            )
-          }} /> 
+        <Switch> 
+          <Route exact path="/canvases">
+            <CanvasList canvases={this.props.canvases}/>
+          </Route>
+          <Route 
+            path="/canvases/:id/paintings/new"
+            render={(routeProps) => {
+              return (
+                this.props.canvases.length === 0 && !this.props.error ?
+                <Loading message="Loading" /> : this.prepStudio(routeProps)
+              )
+            }} /> 
           <Route render={(props) => <NotFound {...props} redirect={"/canvases"} />} />
-      </Switch> 
-    </div>
+        </Switch> 
+      </div>
     )
   }
 }
