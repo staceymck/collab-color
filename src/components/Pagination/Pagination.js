@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Pagination.module.css'
 
 const Pagination = ({current, total, fetch, currentQuery}) => {
 
@@ -20,9 +21,17 @@ const Pagination = ({current, total, fetch, currentQuery}) => {
   }
 
   return (
-    <div>
-      {current !== 1 && <Link to={prevPath()} onClick={() => fetch(currentQuery, parseInt(current - 1))}>Previous</Link> }
-      {current !== total && <Link to={nextPath()} onClick={() => fetch(currentQuery, parseInt(current + 1))}>Next</Link> }
+    <div className={styles.container}>
+      {current !== 1 &&
+        <Link to={prevPath()} className={styles.pageLink} onClick={() => fetch(currentQuery, parseInt(current - 1))}>
+          Previous
+        </Link> 
+      }
+      {current !== total &&
+        <Link to={nextPath()} className={styles.pageLink} onClick={() => fetch(currentQuery, parseInt(current + 1))}>
+          Next
+        </Link>
+      }
     </div>
   )
 }
