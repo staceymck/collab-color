@@ -5,13 +5,16 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import StudioContainer from './containers/StudioContainer';
 import PaintingsContainer from './containers/PaintingsContainer';
+import { connect } from 'react-redux';
+import ErrorModal from './components/ErrorModal/ErrorModal';
 
-
-function App() {
+function App(props) {
   return (
     <div>
       <div className="page-container">
         <Navbar />
+        {console.log(props.error + " in app")}
+        {props.error && <ErrorModal />}
         <Switch>
           <Route path="/gallery" component={PaintingsContainer} />
           <Route path="/canvases">
@@ -28,4 +31,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    error: state.errors.error
+  }
+}
+
+export default connect(mapStateToProps)(App);
