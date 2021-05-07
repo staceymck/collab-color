@@ -8,7 +8,7 @@ import StudioPage from "../components/StudioPage/StudioPage";
 import Loading from "../components/Loading/Loading";
 import NotFound from '../components/NotFound';
 
-class CanvasesContainer extends React.Component {
+class StudioContainer extends React.Component {
 
   componentDidMount = () => {
     this.props.fetchCanvasesStart();
@@ -57,4 +57,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchCanvasesStart, newPainting})(CanvasesContainer)
+export default connect(mapStateToProps, {fetchCanvasesStart, newPainting})(StudioContainer)
