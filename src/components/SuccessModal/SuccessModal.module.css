@@ -1,0 +1,33 @@
+.modal {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255,0.6);
+  padding-top: 30vh;
+  position: fixed;
+  overflow: auto;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.modalContent {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 40%; 
+  text-align: center;
+  color: var(--primary-color);
+  filter: drop-shadow(7px 7px 6px #898989);
+}
+
+.linkItem {
+  padding: 1rem;
+  font-size: 1.05rem;
+}
+
+.message {
+  margin: 0 auto;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
