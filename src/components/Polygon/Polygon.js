@@ -9,7 +9,7 @@ const Polygon = ({points, id, fill, strokeWidth, onClick}) => {
       fill={fill} stroke="#231f20"
       strokeLinejoin="round"
       strokeWidth={strokeWidth}
-      onClick={onClick || null}
+      onClick={onClick}
     />
   )
 }

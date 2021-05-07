@@ -1,5 +1,5 @@
 import React from 'react';
-import StudioCanvas from '../StudioCanvas/StudioCanvas';
+import Canvas from '../Canvas/Canvas';
 import styles from './StudioPage.module.css';
 import { SketchPicker } from 'react-color';
 import buttonStyles from '../Button/Button.module.css';
@@ -27,7 +27,7 @@ class StudioPage extends React.Component {
     return ( 
       <div className={styles.container}>
         {status === "pending" && <Loading message="Saving" />}
-        <StudioCanvas 
+        <Canvas 
           polygons={studioCanvas}
           cardStyles={styles.item1}
           onClick={addColor}
