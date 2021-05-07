@@ -1,7 +1,7 @@
 import snakeize from 'snakeize'
 
 export const createPaintingSuccess = () => ({type: "CREATE_PAINTING_SUCCESS"})
-export const createPaintingError = error => ({type: "CREATE_PAINTING_ERROR", payload: error})
+export const createPaintingError = error => ({type: "CREATE_PAINTING_ERROR", error: error})
 
 export const createPaintingStart = (canvasId, studioCanvas) => {
   return (dispatch) => {
@@ -21,13 +21,22 @@ export const createPaintingStart = (canvasId, studioCanvas) => {
       body: JSON.stringify(snakeize(finishedPainting))
     }
 
+    // fetch("http://localhost:3000/paintings", configObj)
+    // .then(res => res.json())
+    // .then(data => { //can I display success message after the .then or do I need to wait until this step?
+    //   if (data) {
+    //     dispatch(createPaintingSuccess())
+    //    } //display success message
+    // })
     fetch("http://localhost:3000/paintings", configObj)
-    .then(res => res.json())
-    .then(data => { //can I display success message after the .then or do I need to wait until this step?
-      dispatch(createPaintingSuccess()) //display success message
+    .then(res => {
+      if (res.ok) {
+        dispatch(createPaintingSuccess()) //need to only do this if response is good
+      }
     })
     .catch(error => {
-      dispatch(createPaintingError(error)) //display error message
+      console.log(error)
+      dispatch(createPaintingError(error)) //how to hit this block if validation error?
     })
   }
 }

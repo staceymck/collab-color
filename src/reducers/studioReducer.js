@@ -1,5 +1,7 @@
+// studioCanvas structure: [{id, points, color}]
+
 const studioReducer = (
-  state = { studioCanvas: [], status: "idle", errors: null },
+  state = { studioCanvas: [], status: "idle", error: null },
   action
 ) => {
   switch(action.type) {
@@ -40,6 +42,7 @@ const studioReducer = (
         status: "pending"
       }
     case "CREATE_PAINTING_SUCCESS":
+      console.log("success")
       return {
         ...state,
         status: "resolved"
@@ -48,7 +51,7 @@ const studioReducer = (
      return {
        ...state,
        status: "rejected",
-       errors: action.payload
+       error: action.error
      }
     default:
       return state

@@ -1,5 +1,5 @@
 const canvasReducer = (
-  state = { canvases: [], status: "idle", errors: null },
+  state = { canvases: [], status: "idle", error: null },
   action
 ) => {
   switch(action.type) {
@@ -18,7 +18,7 @@ const canvasReducer = (
       return {
         ...state,
         status: "rejected",
-        errors: action.payload
+        error: action.error
       }
     default: 
       return state

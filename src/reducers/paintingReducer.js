@@ -1,5 +1,5 @@
 const paintingReducer = (
-  state = { paintings: [], status: "idle", errors: null, query: "", currentPage: 1, totalPages: 1 },
+  state = { paintings: [], status: "idle", error: null, query: "", currentPage: 1, totalPages: 1 },
   action
 ) => {
   switch(action.type) {
@@ -18,7 +18,7 @@ const paintingReducer = (
       return {
         ...state,
         status: "rejected",
-        errors: action.payload
+        error: action.error
       }
     case "SET_PAGINATION":
       return {

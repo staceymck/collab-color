@@ -1,5 +1,5 @@
 export const fetchCanvasesSuccess = canvases => ({type: "FETCH_CANVASES_SUCCESS", payload: canvases})
-export const fetchCanvasesError = error => ({type: "FETCH_CANVASES_ERROR", payload: error})
+export const fetchCanvasesError = error => ({type: "FETCH_CANVASES_ERROR", error: error})
 
 export const fetchCanvasesStart = () => {
   return (dispatch) => {
