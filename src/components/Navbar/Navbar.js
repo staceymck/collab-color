@@ -11,7 +11,7 @@ const Navbar = () => {
             <NavLink to="/gallery" activeClassName={styles.active}>Gallery</NavLink>
           </li>
           <li>
-            <NavLink to="/canvases" activeClassName={styles.active}>Color a tile</NavLink>
+            <NavLink to="/canvases" activeClassName={styles.active}>Paint</NavLink>
           </li>
         </ul>
       </nav>
