@@ -41,47 +41,9 @@
   grid-column-start: 2;
 }
 
-/* @media (max-width: 920px) {
+@media (max-width: 700px) {
 
   .container {
-    grid-auto-flow: column;
-  } */
-  /* .container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  .container > div {
-    flex-basis: 100%
-  }
-
-  .item1, .item2, .item3 {
-    grid-row-start: initial;
-    grid-row-end: initial;
-    grid-column-start: initial;
-    grid-column-end: initial;
-  } */
-/* } */
-
-/* .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: initial;
+  } 
 }
-
-.column {
-  flex: 50%;
-}
-
-.rightContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.colorPicker {
-  width: 500px;
-} */
-
