@@ -6,14 +6,15 @@ export const fetchCanvasesStart = () => {
     dispatch({type: "FETCH_CANVASES_START"})
 
     fetch("http://localhost:3000/canvases")
-    .then(res => res.json())
-    .then(data => {
-      if (res.ok) {
-        dispatch(fetchCanvasesSuccess(data))
-      } else {
+    .then(res => {
+      if (!res.ok) {
         const message = `${res.status}: ${res.statusText}`
         throw new Error(message)
       }
+      return res.json()
+    })
+    .then(data => {
+      dispatch(fetchCanvasesSuccess(data))
     })
     .catch(error => {
       dispatch(fetchCanvasesError(error.message))

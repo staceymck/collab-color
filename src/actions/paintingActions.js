@@ -7,15 +7,16 @@ export const fetchPaintingsStart = (query = "newest", page = 1) => {
     dispatch({type: "FETCH_PAINTINGS_START"})
 
     fetch(`http://localhost:3000/paintings?q=${query}&page=${page}`)
-    .then(res => res.json())
-    .then(data => {
-      if (res.ok) {
-        dispatch(setPagination(data.current, data.total))
-        dispatch(fetchPaintingsSuccess(data.paintings))
-      } else {
+    .then(res => {
+      if (!res.ok) {
         const message = `${res.status}: ${res.statusText}`
         throw new Error(message)
       }
+      return res.json()
+    })
+    .then(data => {
+      dispatch(setPagination(data.current, data.total))
+      dispatch(fetchPaintingsSuccess(data.paintings))
     })
     .catch(error => {
       dispatch(fetchPaintingsError(error.message))
