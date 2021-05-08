@@ -48,3 +48,7 @@ export const resetCanvas = () => {
   return {type: "RESET_CANVAS"}
 }
 
+export const resetStatus = () => {
+  return {type: "RESET_STATUS"}
+}
+

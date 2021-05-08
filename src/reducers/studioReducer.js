@@ -36,6 +36,11 @@ const studioReducer = (
         ...state,
         studioCanvas: blankCanvas
       }
+    case "RESET_STATUS":
+      return {
+        ...state,
+        status: "idle"
+      }
     case "CREATE_PAINTING_START":
       return {
         ...state,
