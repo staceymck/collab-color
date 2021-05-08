@@ -39,7 +39,7 @@ class StudioContainer extends React.Component {
             path="/canvases/:id/paintings/new"
             render={(routeProps) => {
               return (
-                this.props.canvases.length === 0 && !this.props.error ?
+                this.props.canvases.length === 0 && this.props.status !== "rejected" ?
                 <Loading message="Loading" /> : this.prepStudio(routeProps)
               )
             }} /> 
