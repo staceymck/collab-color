@@ -3,7 +3,7 @@ import Canvas from '../Canvas/Canvas';
 import styles from './StudioPage.module.css';
 import { SketchPicker } from 'react-color';
 import buttonStyles from '../Button/Button.module.css';
-import { addColor, resetCanvas, createPaintingStart } from '../../actions/studioActions';
+import { addColor, resetCanvas, createPaintingStart, resetStatus } from '../../actions/studioActions';
 import { connect } from 'react-redux';
 import ColorPicker from '../ColorPicker/ColorPicker'
 
@@ -21,7 +21,7 @@ class StudioPage extends React.Component {
   }
 
   componentWillUnmount = () => {
-    //BE SURE TO CALL A DISPATCH THAT RESETS THE STATUS AS IDLE
+    this.props.resetStatus()
   }
 
   handleChangeComplete = (color) => {
@@ -80,4 +80,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addColor, resetCanvas, createPaintingStart})(StudioPage)
+export default connect(mapStateToProps, {addColor, resetCanvas, createPaintingStart, resetStatus})(StudioPage)
