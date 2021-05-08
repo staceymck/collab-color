@@ -31,6 +31,7 @@ export default class Loading extends React.Component {
     return dots.map((dot, i) => {
       return (
         <svg height="100" width="100" key={i}>
+          <title>Row of teal cirlces</title>
           <circle cx="50" cy="50" r="20" fill={this.state.dark === dot ? "#267E92" : "#43BEC6" } />
         </svg>
       )

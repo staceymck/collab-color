@@ -6,6 +6,7 @@ const Canvas = ({polygons, cardStyles, strokeWidth, onClick, activeColor}) => {
   return (
     <div className={cardStyles}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612.25 612.25">
+        <title>Square canvas made of triangles</title>
         {polygons.map(p => {
             return (
               <Polygon
