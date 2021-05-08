@@ -6,6 +6,7 @@ const canvasReducer = (
     case "FETCH_CANVASES_START":
       return {
         ...state,
+        error: null,
         status: "pending"
       }
     case "FETCH_CANVASES_SUCCESS":

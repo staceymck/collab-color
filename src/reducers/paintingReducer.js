@@ -6,6 +6,7 @@ const paintingReducer = (
     case "FETCH_PAINTINGS_START":
       return {
         ...state,
+        error: null,
         status: "pending"
       }
     case "FETCH_PAINTINGS_SUCCESS":

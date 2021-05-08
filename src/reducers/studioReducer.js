@@ -39,10 +39,10 @@ const studioReducer = (
     case "CREATE_PAINTING_START":
       return {
         ...state,
+        error: null,
         status: "pending"
       }
     case "CREATE_PAINTING_SUCCESS":
-      console.log("success")
       return {
         ...state,
         status: "resolved"
