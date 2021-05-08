@@ -9,13 +9,16 @@ export const fetchPaintingsStart = (query = "newest", page = 1) => {
     fetch(`http://localhost:3000/paintings?q=${query}&page=${page}`)
     .then(res => res.json())
     .then(data => {
-      dispatch(setPagination(data.current, data.total))
-      dispatch(fetchPaintingsSuccess(data.paintings))
+      if (res.ok) {
+        dispatch(setPagination(data.current, data.total))
+        dispatch(fetchPaintingsSuccess(data.paintings))
+      } else {
+        const message = `${res.status}: ${res.statusText}`
+        throw new Error(message)
+      }
     })
     .catch(error => {
-      console.log(error)
-      // dispatch(displayErrorAlert())
-      dispatch(fetchPaintingsError(error))
+      dispatch(fetchPaintingsError(error.message))
     })
   }
 }

@@ -21,22 +21,17 @@ export const createPaintingStart = (canvasId, studioCanvas) => {
       body: JSON.stringify(snakeize(finishedPainting))
     }
 
-    // fetch("http://localhost:3000/paintings", configObj)
-    // .then(res => res.json())
-    // .then(data => { //can I display success message after the .then or do I need to wait until this step?
-    //   if (data) {
-    //     dispatch(createPaintingSuccess())
-    //    } //display success message
-    // })
     fetch("http://localhost:3000/paintings", configObj)
     .then(res => {
       if (res.ok) {
-        dispatch(createPaintingSuccess()) //need to only do this if response is good
+        dispatch(createPaintingSuccess())
+      } else {
+        const message = `${res.status}: ${res.statusText}`
+        throw new Error(message)
       }
     })
     .catch(error => {
-      console.log(error)
-      dispatch(createPaintingError(error)) //how to hit this block if validation error?
+      dispatch(createPaintingError(error.message))
     })
   }
 }

@@ -8,10 +8,15 @@ export const fetchCanvasesStart = () => {
     fetch("http://localhost:3000/canvases")
     .then(res => res.json())
     .then(data => {
-      dispatch(fetchCanvasesSuccess(data))
+      if (res.ok) {
+        dispatch(fetchCanvasesSuccess(data))
+      } else {
+        const message = `${res.status}: ${res.statusText}`
+        throw new Error(message)
+      }
     })
     .catch(error => {
-      dispatch(fetchCanvasesError(error))
+      dispatch(fetchCanvasesError(error.message))
     })
   }
 }

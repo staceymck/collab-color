@@ -7,7 +7,7 @@ const errorReducer = (
   if(error) {
     console.log(error + " show")
     return {
-      error: error.message, //how do the errors come back? could I have more than one?
+      error: error, //how do the errors come back? could I have more than one?
       isOpen: true
     }
   } else if(action.type === "HIDE_ERROR") {
