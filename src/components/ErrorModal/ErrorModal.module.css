@@ -14,15 +14,33 @@
 .modalContent {
   background-color: #fff;
   margin: 0 auto;
-  padding: 2rem;
-  width: 40%; 
-  text-align: center;
+  padding: 1.5rem;
+  width: 30%; 
   color: var(--primary-color);
   filter: drop-shadow(7px 7px 6px #898989);
 }
 
-.message {
+.message1 {
   margin: 0 auto;
   font-size: 2rem;
   padding-bottom: 1rem;
+  padding-top: 1rem;
 }
+
+.close {
+  float: right;
+  font-size: 1rem;
+  background: initial;
+  border: initial;
+  color: var(--primary-color);
+}
+
+.close:hover {
+  font-weight: bold;
+  color: var(--primary-color-dark);
+}
+
+.message2 {
+  font-size: 1rem;
+  font-weight: var(--main-font-weight);
+} 

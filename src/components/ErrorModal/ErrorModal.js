@@ -12,9 +12,9 @@ const ErrorModal = (props) => {
     {props.isOpen && props.error ?
       <div className={styles.modal}>
         <div className={styles.modalContent}>
-          <button onClick={() => props.hideError()}>Close Error</button>
-          <h1 className={styles.message}>Something went wrong! Please try again</h1>
-          <p>Error details: {props.error}</p>
+          <button className={styles.close} onClick={() => props.hideError()}>X</button>
+          <h1 className={styles.message1}>Something went wrong! Please try again</h1>
+          <h2 className={styles.message2}>Error details: {props.error}</h2>
         </div>
       </div>
       :
