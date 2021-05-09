@@ -2,7 +2,6 @@ import React from 'react';
 import Canvas from '../Canvas/Canvas';
 import styles from './StudioPage.module.css';
 import { SketchPicker } from 'react-color';
-import buttonStyles from '../Button/Button.module.css';
 import { addColor, resetCanvas, createPaintingStart, resetStatus } from '../../actions/studioActions';
 import { connect } from 'react-redux';
 import Loading from '../Loading/Loading';
@@ -79,13 +78,13 @@ class StudioPage extends React.Component {
 
         <div className={styles.item3}>
           {this.minPolysPainted() ? 
-            <button className={buttonStyles.primary} onClick={() => createPaintingStart(canvas.id, studioCanvas)}>
+            <button className="button-primary" onClick={() => createPaintingStart(canvas.id, studioCanvas)}>
               Post to gallery
             </button> 
             :
             <p>Paint 20+ to unlock posting</p>
           }
-          <button className={buttonStyles.danger} onClick={resetCanvas}>
+          <button className="button-danger" onClick={resetCanvas}>
             Reset
           </button>
         </div>

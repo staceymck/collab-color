@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css'
-import '../../links.css' //importing linkStyles here applies it everywhere on the app because it's global
 
 const Navbar = () => {
   return (

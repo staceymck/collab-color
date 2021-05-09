@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import artSample from '../../assets/art-sample.svg';
 import styles from './Home.module.css';
-import buttonStyles from '../Button/Button.module.css';
 
 const Home = () => {
   return (
@@ -21,7 +20,7 @@ const Home = () => {
         Tiles are displayed newest to oldest in the gallery, but you can create new patterns through
         the sorting options. Thanks for co-creating!
       </p>
-      <Link to="/gallery" className={buttonStyles.primary}>View the gallery</Link>
+      <Link to="/gallery" className="button-primary">View the gallery</Link>
       </div>
       <div className={styles.column}>
         <img src={artSample} alt="Grid of 9 squares, each composed of colorful triangles" />
