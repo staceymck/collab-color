@@ -31,3 +31,60 @@ body {
   margin-bottom: -50px;
 }
 
+/* Global Button Styles */
+button {
+  cursor: pointer;
+}
+
+.button-primary {
+  padding: .5em 2em;
+  border-color: var(--primary-color);
+  border-radius: 6px;
+  text-decoration: none;
+  background:var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  font-size: initial;
+  border: none;
+  margin: 1rem 0;
+}
+
+.button-primary:hover {
+  border-color: var(--primary-color-dark);
+  background: var(--primary-color-dark);
+  font-weight: 500;
+}
+
+.button-danger {
+  margin-top: .75rem;
+  padding: .25rem;
+  background: initial;
+  font-size: 1rem;
+  color: #267E92;
+  text-decoration: underline;
+  border: initial;
+  transition-duration: 0.2s;
+}
+
+.button-danger:hover {
+  cursor: pointer;
+  color: #AE1E06;
+  font-weight: bold;
+}
+
+/* Global Link Styles */
+.active {
+  font-weight: bold;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+a:hover {
+  font-weight: bold;
+}
