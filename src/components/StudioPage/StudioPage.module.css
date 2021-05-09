@@ -14,9 +14,10 @@
 }
 
 .colorPicker[style] {
-  width: 60% !important;
+  /* width: 60% !important; */
   margin: auto;
 }
+
 
 .item1 {
   grid-row-start: 1;
