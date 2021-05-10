@@ -13,7 +13,6 @@ function App(props) {
     <div>
       <div className="page-container">
         <Navbar />
-        {console.log(props.error + " in app")}
         {props.error && <ErrorModal />}
         <Switch>
           <Route path="/gallery" component={PaintingsContainer} />

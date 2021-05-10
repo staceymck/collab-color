@@ -5,13 +5,11 @@ const errorReducer = (
   const { error } = action;
  
   if(error) {
-    console.log(error + " show")
     return {
-      error: error, //how do the errors come back? could I have more than one?
+      error: error,
       isOpen: true
     }
   } else if(action.type === "HIDE_ERROR") {
-    console.log("hide")
     return {
       error: null,
       isOpen: false

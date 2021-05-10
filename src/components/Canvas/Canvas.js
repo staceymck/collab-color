@@ -1,5 +1,5 @@
 import React from 'react';
-import Polygon from '../Polygon/Polygon'
+import Polygon from '../Polygon/Polygon';
 
 const Canvas = ({polygons, cardStyles, strokeWidth, onClick, activeColor}) => {
 
