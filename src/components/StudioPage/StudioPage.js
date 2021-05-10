@@ -11,7 +11,7 @@ class StudioPage extends React.Component {
 
   state = {
     activeColor: "#267E92",
-    recentColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
+    presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
     '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000',
     '#4A4A4A', '#9B9B9B', '#FFFFFF']
   }
@@ -25,24 +25,21 @@ class StudioPage extends React.Component {
   }
 
   handleChangeComplete = (color) => {
-    this.setState({activeColor: color.hex})
+    this.setState({activeColor: color.hex.toUpperCase()})
   }
 
   handleClick = (id, activeColor) => {
     this.props.addColor(id, activeColor)
-
-    if (!this.state.recentColors.includes(activeColor.toUpperCase())) {
-      console.log(this.state.recentColors)
-      this.setState(state => {
-        const colors = state.recentColors.slice(0)
-        colors.unshift(activeColor.toUpperCase())
-        colors.pop()
-        return {
-          ...state,
-          recentColors: colors
-        }
-      }, () => this.state.recentColors)
-    }
+    if (!this.state.presetColors.includes(activeColor)) {
+        this.setState(state => {
+          const colors = state.presetColors.slice(0)
+          colors.unshift(activeColor)
+          colors.pop()
+          return {
+            presetColors: colors
+          }
+        })
+      }
   } 
 
   minPolysPainted = () => {
@@ -60,7 +57,6 @@ class StudioPage extends React.Component {
         <Canvas 
           polygons={studioCanvas}
           cardStyles={styles.item1}
-          // onClick={addColor}
           onClick={this.handleClick}
           activeColor={this.state.activeColor}
         />
@@ -68,11 +64,11 @@ class StudioPage extends React.Component {
         <div className={styles.item2}>
           <SketchPicker
             color={this.state.activeColor}
-            onChangeComplete={this.handleChangeComplete}
+            onChange={this.handleChangeComplete}
             className={styles.colorPicker}
             width="60%"
             disableAlpha={true}
-            presetColors={this.state.recentColors}
+            presetColors={this.state.presetColors}
           />
         </div>
 
