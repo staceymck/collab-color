@@ -19,7 +19,7 @@ export default class Loading extends React.Component {
           )
         })
       }
-    }, 350) 
+    }, 200) 
   }
 
   componentWillUnmount = () => {
