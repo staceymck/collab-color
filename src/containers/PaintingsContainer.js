@@ -10,7 +10,7 @@ import NotFound from '../components/NotFound';
 
 class PaintingsContainer extends React.Component {
 
-  componentDidMount = () => {
+  componentDidMount() {
     const search = new URLSearchParams(this.props.location.search)
     const query = search.get("q") || ""
     let page = parseInt(search.get("page")) || 1

@@ -8,7 +8,7 @@ export default class Loading extends React.Component {
     dots: 3
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.interval = setInterval(() => {
       if (this.state.dark === this.state.dots) {
         this.setState({dark: 1})
@@ -22,7 +22,7 @@ export default class Loading extends React.Component {
     }, 200) 
   }
 
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     clearInterval(this.interval)
   }
 

@@ -16,11 +16,11 @@ class StudioPage extends React.Component {
     '#4A4A4A', '#9B9B9B', '#FFFFFF']
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.props.newPainting(this.props.canvas.polygons)
   }
 
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     this.props.resetStatus()
   }
 

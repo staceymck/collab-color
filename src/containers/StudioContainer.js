@@ -10,7 +10,7 @@ import NotFound from '../components/NotFound';
 
 class StudioContainer extends React.Component {
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.props.fetchCanvasesStart();
   }
 
