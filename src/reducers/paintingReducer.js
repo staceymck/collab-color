@@ -6,7 +6,6 @@ const paintingReducer = (
     case "FETCH_PAINTINGS_START":
       return {
         ...state,
-        error: null,
         status: "pending"
       }
     case "FETCH_PAINTINGS_SUCCESS":
@@ -31,6 +30,11 @@ const paintingReducer = (
       return {
         ...state,
         query: action.query
+      }
+    case "HIDE_ERROR":
+      return {
+        ...state,
+        error: null
       }
     default: 
       return state

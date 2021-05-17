@@ -44,7 +44,6 @@ const studioReducer = (
     case "CREATE_PAINTING_START":
       return {
         ...state,
-        error: null,
         status: "pending"
       }
     case "CREATE_PAINTING_SUCCESS":
@@ -58,6 +57,11 @@ const studioReducer = (
        status: "rejected",
        error: action.error
      }
+     case "HIDE_ERROR":
+      return {
+        ...state,
+        error: null
+      }
     default:
       return state
   }
