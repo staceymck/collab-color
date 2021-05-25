@@ -5,7 +5,7 @@ export const fetchCanvasesStart = () => {
   return (dispatch) => {
     dispatch({type: "FETCH_CANVASES_START"})
 
-    fetch("http://localhost:3000/canvases")
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/canvases`)
     .then(res => {
       if (!res.ok) {
         const message = `${res.status}: ${res.statusText}`

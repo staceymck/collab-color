@@ -21,7 +21,7 @@ export const createPaintingStart = (canvasId, studioCanvas) => {
       body: JSON.stringify(snakeize(finishedPainting))
     }
 
-    fetch("http://localhost:3000/paintings", configObj)
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/paintings`, configObj)
     .then(res => {
       if (res.ok) {
         dispatch(createPaintingSuccess())

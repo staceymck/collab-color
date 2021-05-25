@@ -6,7 +6,7 @@ export const fetchPaintingsStart = (query = "newest", page = 1) => {
     dispatch(setSortQuery(query))
     dispatch({type: "FETCH_PAINTINGS_START"})
 
-    fetch(`http://localhost:3000/paintings?q=${query}&page=${page}`)
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/paintings?q=${query}&page=${page}`)
     .then(res => {
       if (!res.ok) {
         const message = `${res.status}: ${res.statusText}`
