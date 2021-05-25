@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
 import './index.css';
 import App from './App';
-import ScrollToTop from './ScrollToTop';
+import ScrollToTop from './components/ScrollToTop';
 
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
