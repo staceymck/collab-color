@@ -48,7 +48,7 @@ class StudioPage extends React.Component {
   }
 
   render() {
-    const { studioCanvas, addColor, resetCanvas, createPaintingStart, canvas, status } = this.props
+    const { studioCanvas, resetCanvas, createPaintingStart, canvas, status } = this.props
     return ( 
       <div className={styles.container}>
         {status === "pending" && <Loading message="Posting" />}
