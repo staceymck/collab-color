@@ -1,7 +1,7 @@
 # Collab-Color
 
 ## Description
-As an artist and programmer with a background in nonprofit service, I enjoy the creative process - especially when it grows from collaboration. I’ve worked on group art projects where individuals contributed similar but unique elements that were then formed into one collective artwork with an almost mosiac feel. I wanted to share this experience with others, so I developed a collaborative art app using React on the frontend and a Rails API backend. [Watch demo](https://www.youtube.com/watch?v=1vj96n49h8c)
+As an artist and programmer with a background in nonprofit service, I enjoy the creative process - especially when it grows from collaboration. I’ve worked on group art projects where individuals contributed similar but unique elements that were then formed into one collective artwork with an almost mosaic feel. I wanted to share this experience with others, so I developed a collaborative art app using React on the frontend and a Rails API backend. [Watch demo](https://www.youtube.com/watch?v=1vj96n49h8c)
 
 Contribute to a collective artwork by coloring in one or more tiles through this click-to-color app. 
 <br><img src="public/readme-images/home.png" alt="Home page view with description of app beside 3x3 grid of squares composed of colorful triangles" width="500">
